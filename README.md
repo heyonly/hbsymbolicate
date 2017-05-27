@@ -4,6 +4,10 @@
 
 
 uage:
+
+
+
+
 sh symbol.sh -l <path/ipa.crash> -b <path/example.app/example> -o destination.crash
 
 
