@@ -1,12 +1,14 @@
 #!/bin/bash
 usage(){
 	echo ""
-	echo "usage sh symbol.sh -l <path/ipa.crash> -b <path/example.app/example> -o destination.crash"
-	echo "-l crash report"
-	echo "-b crash binary"
-	echo "-o destination.crash"
+	echo "	usage sh symbol.sh -l <path/ipa.crash> -b <path/example.app/example> -o destination.crash"
+	echo "	-l crash report"
+	echo "	-b crash binary"
+	echo "	-o destination.crash"
+	echo "	-h print this usage"
+	echo ""
 }
-while getopts ":l:b:o:h:" opt
+while getopts ":l:b:o:h" opt #第一个:表示忽略错误
     do
         case "${opt}" in
             l)  CRASHREPORT=${OPTARG}
@@ -18,6 +20,9 @@ while getopts ":l:b:o:h:" opt
             h)  usage
                 exit 0
                 ;;
+	    ?)  usage
+		exit 0
+		;;
         esac
     done
 echo $DEST;
